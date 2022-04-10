@@ -12,4 +12,12 @@ $result = socket_bind($socket, $host, $port) or die ("Couldn't bind socket\n");
 $result = socket_listen($socket,3) or die ("Couldn't set up socket listener\n");
 
 echo "Listening for connections";
+
+class Chat {
+
+    function readline() {
+        return rtrim(fgets(STDIN));
+    }
+}
+
 ?>
