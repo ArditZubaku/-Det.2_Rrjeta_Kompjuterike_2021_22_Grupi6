@@ -30,3 +30,16 @@
 
                     }
                     ?>
+                    
+                    <tr>
+                        <td>
+                            <textarea rows='10' col='30'><?php echo @$reply ?></textarea>
+                        </td>
+                    </tr>
+                </table>
+                </form>
+                </div>
+                </body>
+                </html>
+    
+
