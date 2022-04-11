@@ -6,8 +6,8 @@ $port = 20205;
 set_time_limit(0);
 
 $sock=socket_create(AF_INET,SOCK_STREAM,0) or die ("Couldn't create socket\n");
-socket_bind($sock,$host,$port);
-socket_listen($sock);
+socket_bind($sock,$host,$port) or die ("Couldn't bind socket\n");
+socket_listen($sock) or die ("Couldn't set up socket listener\n");
 echo "Listening for connections";
 
 
@@ -20,7 +20,7 @@ class Chat {
 
 do {
       $accept = socket_accept($sock) or die ("Couldn't accept incoming connection\n");
-    $msg = socket_read($accept,1024);
+    $msg = socket_read($accept,1024) or die ("Couldn't read input");
     
     $msg = trim($msg);
     echo "Client says:\t".$msg."\n\n";
