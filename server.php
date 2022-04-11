@@ -19,7 +19,7 @@ class Chat {
 }
 
 do {
-      $accept = socket_accept($sock);
+      $accept = socket_accept($sock) or die ("Couldn't accept incoming connection\n");
     $msg = socket_read($accept,1024);
     
     $msg = trim($msg);
