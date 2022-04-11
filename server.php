@@ -19,21 +19,19 @@ class Chat {
 }
 
 do {
-    $accept = socket_accept($socket) or die ("Couldn't accept incoming connection\n");
-    $message = socket_read($accept, 1024) or die ("Couldn't read input");
+      $accept = socket_accept($sock);
+    $msg = socket_read($accept,1024);
     
-    $message = trim($message);
-    echo "Client says:\t".$message."\n\n";
-
-    line = new Chat();
-    echo "Enter reply:\t";
+    $msg = trim($msg);
+    echo "Client says:\t".$msg."\n\n";
+    $line = new Chat();
+    echo "Enter Reply:\t";
     $reply = $line->readline();
 
-    socket_write($accept,$reply,strlen($reply)) or die ("Couldn't write output\n");
-}
+    socket_write($accept,$reply,strlen($reply));
+}while(true);
 
-while(true);
-
-socket_close($accept,$socket);
+socket_close($accept);
+socket_close($sock);
 
 ?>
