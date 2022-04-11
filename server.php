@@ -5,7 +5,7 @@ $port = 20205;
 
 set_time_limit(0);
 
-$sock=socket_create(AF_INET,SOCK_STREAM,0);
+$sock=socket_create(AF_INET,SOCK_STREAM,0) or die ("Couldn't create socket\n");
 socket_bind($sock,$host,$port);
 socket_listen($sock);
 echo "Listening for connections";
